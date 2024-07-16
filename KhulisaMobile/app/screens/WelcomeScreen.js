@@ -13,7 +13,7 @@ const WelcomeScreen = ({ navigation }) =>{
       duration: 2000,
       useNativeDriver: true,
     }).start(() => {
-      navigation.replace('Login'); // Replace 'Onboarding' with 'Login' if you want to go to the login screen
+      navigation.replace('Login'); 
     });
   }, [fadeAnim]);
     return(
