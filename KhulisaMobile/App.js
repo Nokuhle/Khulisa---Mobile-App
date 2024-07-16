@@ -21,7 +21,7 @@ export default function App() {
         <Stack.Screen name="Welcome" component={WelcomeScreen}/>
 
         <Stack.Screen name="Login" component={LoginScreen}/>
-        <BottomTabNavigator/>
+        {/* <BottomTabNavigator/> */}
 
       </Stack.Navigator>
     </NavigationContainer>

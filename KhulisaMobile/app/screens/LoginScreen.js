@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
-import { View, Text, Button,TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Button,TextInput, StyleSheet, Image, TouchableOpacity , Keyboard,TouchableWithoutFeedback, ScrollView, KeyboardAvoidingView} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const LoginScreen = () => {
@@ -11,11 +11,19 @@ const LoginScreen = () => {
       
       if (username === '' && password === '') {
         navigation.navigate('Home');
+        Keyboard.dismiss(); 
       } else {
         alert('Invalid credentials');
+         
       }
     };
+    const dismissKeyboard = () => {
+        Keyboard.dismiss(); // Function to dismiss keyboard when tapping outside TextInput
+      };
     return (
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+      <TouchableWithoutFeedback onPress={dismissKeyboard}>
       <View style={styles.container}>
         <Image source={require('../../assets/KHULISA-removebg-preview.png')} style={styles.logo}/>
         <TextInput style={styles.input}
@@ -41,9 +49,14 @@ const LoginScreen = () => {
       </LinearGradient>
         <Text style= {styles.or}>OR</Text>
         <TouchableOpacity>
-            <Text style={styles.sign}>Sign Up</Text>
+            <Text style={styles.createAcc}>Create Account</Text>
         </TouchableOpacity>
+        
       </View>
+      
+      </TouchableWithoutFeedback>
+      </ScrollView>
+      </KeyboardAvoidingView>
     );
   };
   
@@ -98,10 +111,10 @@ const LoginScreen = () => {
         fontSize: 20,
         marginTop: 15,
       },
-      sign:{
+      createAcc:{
         marginTop: 20,
         color: '#008C27',
-        fontSize: 25,
+        fontSize: 21,
         
       },
      
