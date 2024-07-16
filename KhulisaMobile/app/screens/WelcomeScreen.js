@@ -1,11 +1,25 @@
-import React from 'react';
-import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, Button, StyleSheet, Image, Animated} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+
+
 const WelcomeScreen = ({ navigation }) =>{
+  const fadeAnim = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start(() => {
+      navigation.replace('Login'); // Replace 'Onboarding' with 'Login' if you want to go to the login screen
+    });
+  }, [fadeAnim]);
     return(
         <View style={styles.container}>
-            <LinearGradient
+          <Animated.View>
+          <LinearGradient
         colors={['#7AE844', 'rgb(0, 140, 39)']}
         locations={[0, 1]}
         start={{ x: 0, y: 0.5 }}
@@ -14,8 +28,10 @@ const WelcomeScreen = ({ navigation }) =>{
       >
        <Image source={require('../../assets/KHULISA1-removebg-preview.png')} style={styles.logo}/>
        <Text style={styles.text}>Planting Seeds of Growth</Text>
-       <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>Get Started</Text></TouchableOpacity>
+       
       </LinearGradient>
+          </Animated.View>
+        
         
         </View>
     );
