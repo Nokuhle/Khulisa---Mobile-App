@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, TextInput, Alert } from 'react-native';
-import * as Location from 'expo-location'; // Corrected import statement
+import * as Location from 'expo-location'; 
 
 const MyCropsScreen = () => {
   const [location, setLocation] = useState('');
