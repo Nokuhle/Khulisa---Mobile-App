@@ -3,13 +3,15 @@ import React from 'react';
 import { View, Text, Button,TextInput, StyleSheet, Image, TouchableOpacity , Keyboard,TouchableWithoutFeedback, ScrollView, KeyboardAvoidingView} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const LoginScreen = ({navigation}) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+const CreateAccount = ({navigation}) => {
+    const [username, setUsername,] = useState('');
+    const [useremail, setUserEmail,] = useState('');
+    const [createPassword, setNewPassword] = useState('');
+    const [confirmPassword, setPassword] = useState('');
   
-    const handleLogin = () => {
+    const handleHome = () => {
       
-      if (username === '' && password === '') {
+      if (useremail === '' && createPassword === '') {
         navigation.navigate('Home');
         Keyboard.dismiss(); 
       } else {
@@ -17,11 +19,11 @@ const LoginScreen = ({navigation}) => {
          
       }
     };
+    const handleLogin = () => {
+        navigation.navigate('Login');
+    };
     const dismissKeyboard = () => {
         Keyboard.dismiss(); // Function to dismiss keyboard when tapping outside TextInput
-      };
-      const handleSignUp = ()=> {
-        navigation.navigate('Create Account')
       };
     return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
@@ -32,11 +34,19 @@ const LoginScreen = ({navigation}) => {
         <TextInput style={styles.input}
         value={username}
         onChangeText={setUsername}
-        placeholder="Email"/>
+        placeholder="Name"/>
         <TextInput style={styles.input2}
-        value={password}
+        value={useremail}
+        onChangeText={setUserEmail}
+        placeholder="Email"/>
+        <TextInput style={styles.input3}
+        value={createPassword}
+        onChangeText={setNewPassword}
+        placeholder="Create Password"/>
+        <TextInput style={styles.input4}
+        value={confirmPassword}
         onChangeText={setPassword}
-        placeholder="Password"/>
+        placeholder="Confirm Password"/>
           <LinearGradient
         colors={['#7AE844', 'rgb(0, 140, 39)']}
         locations={[0, 1]}
@@ -45,15 +55,15 @@ const LoginScreen = ({navigation}) => {
         style={styles.linearGradient}
   
       >
-       <TouchableOpacity onPress={handleLogin}>
-            <Text style={styles.login}>Login</Text>
+       <TouchableOpacity onPress={handleHome}>
+            <Text style={styles.createAcc}>Create Account</Text>
         </TouchableOpacity>
         
        
       </LinearGradient>
         <Text style= {styles.or}>OR</Text>
-        <TouchableOpacity>
-            <Text style={styles.createAcc} onPress={handleSignUp}>Create Account</Text>
+        <TouchableOpacity onPress={handleLogin}>
+            <Text style={styles.login}>Login</Text>
         </TouchableOpacity>
         
       </View>
@@ -83,7 +93,7 @@ const LoginScreen = ({navigation}) => {
         height: 40,
         borderColor: '#008C27',
         borderWidth: 2,
-        top: -50,
+        top: -70,
         paddingHorizontal: 8,
         width: 260,
         borderRadius: 10,
@@ -92,7 +102,25 @@ const LoginScreen = ({navigation}) => {
         height: 40,
         borderColor: '#008C27',
         borderWidth: 2,
-        top: -30,
+        top: -55,
+        paddingHorizontal: 8,
+        width: 260,
+        borderRadius: 10,
+      },
+      input3: {
+        height: 40,
+        borderColor: '#008C27',
+        borderWidth: 2,
+        top: -40,
+        paddingHorizontal: 8,
+        width: 260,
+        borderRadius: 10,
+      },
+      input4: {
+        height: 40,
+        borderColor: '#008C27',
+        borderWidth: 2,
+        top: -27,
         paddingHorizontal: 8,
         width: 260,
         borderRadius: 10,
@@ -104,7 +132,7 @@ const LoginScreen = ({navigation}) => {
         borderRadius: 15,
 
       },
-      login:{
+      createAcc:{
         color: 'white',
         fontSize: 18,
         fontWeight: 'bold',
@@ -115,7 +143,7 @@ const LoginScreen = ({navigation}) => {
         fontSize: 20,
         marginTop: 15,
       },
-      createAcc:{
+      login:{
         marginTop: 20,
         color: '#008C27',
         fontSize: 21,
@@ -124,5 +152,5 @@ const LoginScreen = ({navigation}) => {
      
   });
 
-export default LoginScreen;
+export default CreateAccount;
 

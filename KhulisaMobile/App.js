@@ -1,16 +1,13 @@
-//Dependencies
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-//Importing Screens
+// Importing Screens
 import WelcomeScreen from './app/screens/WelcomeScreen';
-
 import LoginScreen from './app/screens/LoginScreen';
-
 import BottomTabNavigator from './app/screens/BottomTabNavigator';
-
-
+import HomeScreen from './app/screens/HomeScreen';
+import CreateAccount from './app/screens/CreateAccount';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,11 +15,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen name="Welcome" component={WelcomeScreen}/>
-
-        <Stack.Screen name="Login" component={LoginScreen}/>
-        {/* <BottomTabNavigator/> */}
-
+        <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Create Account" component={CreateAccount} />
+        {/* Uncomment this if you want to use BottomTabNavigator */}
+        {/* <Stack.Screen name="BottomTabs" component={BottomTabNavigator} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

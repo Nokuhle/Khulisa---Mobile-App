@@ -1,27 +1,79 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { View, Text, Button, StyleSheet, ImageBackground } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import Card from './Card';
 
-const Card = ({ title, description, image, buttonText}) =>{
-    return(
-        <ImageBackground source={{ uri: image }} style={styles.card}>
-            <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>{title}</Text>
-            <Text style={styles.cardDescription}>{description}</Text>
-            <Button title={buttonText} onPress={() => {}} />
+
+
+const HomeScreen = ({ navigation }) => {
+    return (
+        <View style={styles.container}>
+            <View style={styles.head}>
+            <Text style={styles.heading}>User</Text>
             </View>
-        </ImageBackground>
-    );
-};
-
-const HomeScreen = () =>{
-    return(
-        <View>
-            <Text>Home Screen</Text>
+            <Card
+          title="Crop Health Insights"
+          description="Boost crop health and yield with expert advice. Optimize resources for better productivity..."
+          imageSource={require('../../assets/water-plant-growth.jpg')}
+          onPress={() => console.log('Anonymous Reporting')}
+        />
+         <Card
+          title="Climate Insights"
+          description="Get real-time weather updates and alerts on cyclones, flooding, and droughts. Protect your crops"
+          imageSource={require('../../assets/Sunshine-Coast-News-Cyclone-Main.jpg')}
+          onPress={() => console.log('Anonymous Reporting')}
+        />
+          
         </View>
     );
 };
 
-export default HomeScreen();
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // justifyContent: 'center',
+        alignItems: 'center',
+    },
+    card: {
+        width: 300,
+        height: 200,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    cardContent: {
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        padding: 10,
+        borderRadius: 10,
+    },
+    cardTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#fff',
+    },
+    cardDescription: {
+        fontSize: 14,
+        color: '#fff',
+    },
+    heading:{
+        marginTop: 10,
+        fontSize: 25,
+        color: 'rgb(0, 140, 39)',
+        
+        
+    },
+    head: {
+        paddingBottom: 20,
+        paddingTop: 10,
+        width: '100%',
+        backgroundColor: 'white',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5, // For Android shadow
+        alignItems: 'center',
+    },
+});
+
+export default HomeScreen;
