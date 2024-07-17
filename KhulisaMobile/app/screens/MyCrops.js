@@ -11,4 +11,4 @@ const MyCropsScreen = () =>{
     );
 };
 
-export default MyCropsScreen();
+export default MyCropsScreen;

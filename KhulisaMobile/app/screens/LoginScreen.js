@@ -10,19 +10,22 @@ const LoginScreen = ({navigation}) => {
     const handleLogin = () => {
       
       if (username === '' && password === '') {
-        navigation.navigate('Home');
+        navigation.navigate('BottomTabs');
         Keyboard.dismiss(); 
       } else {
         alert('Invalid credentials');
          
       }
     };
+
     const dismissKeyboard = () => {
         Keyboard.dismiss(); // Function to dismiss keyboard when tapping outside TextInput
       };
+
       const handleSignUp = ()=> {
         navigation.navigate('Create Account')
       };
+
     return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
