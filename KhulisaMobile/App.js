@@ -19,8 +19,8 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Create Account" component={CreateAccount} />
-        {/* Uncomment this if you want to use BottomTabNavigator */}
-        {/* <Stack.Screen name="BottomTabs" component={BottomTabNavigator} /> */}
+      
+        <Stack.Screen name="BottomTabs" component={BottomTabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );
