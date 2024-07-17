@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, TextInput, Alert } from 'react-native';
-import * as Location from 'expo-location';
-
-const WINDY_API_KEY = 'IE9u5jPHqXedtHCZHoRHwWhad03TSPTx';
+import { requestLocationPermission, getCurrentLocation } from '../../components/LocationData';
+import { getWeatherData } from '../../components/WeatherData';
 
 const MyCropsScreen = () => {
   const [location, setLocation] = useState('');
@@ -10,57 +9,28 @@ const MyCropsScreen = () => {
 
   useEffect(() => {
     (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        Alert.alert('Permission Denied', 'Location permission is required to fetch your location');
+      const hasPermission = await requestLocationPermission();
+      if (!hasPermission) {
         return;
       }
     })();
   }, []);
 
   const getLocation = async () => {
-    try {
-      let location = await Location.getCurrentPositionAsync({});
-      const { latitude, longitude } = location.coords;
-      const coords = `${latitude}, ${longitude}`;
-      setLocation(coords);
-      getWeatherData(latitude, longitude); // Fetch weather data after getting location
-    } catch (error) {
-      console.error('Error getting location', error);
-      Alert.alert('Error', 'Unable to get location');
+    const coords = await getCurrentLocation();
+    if (coords) {
+      const { latitude, longitude } = coords;
+      setLocation(`${latitude}, ${longitude}`);
+      fetchWeatherData(latitude, longitude); 
     }
   };
 
-  const getWeatherData = async (latitude, longitude) => {
-    const requestBody = {
-      lat: latitude,
-      lon: longitude,
-      model: 'gfs',
-      parameters: ['wind', 'dewpoint', 'rh', 'pressure','precip'],
-      levels: ['surface'],
-      key: WINDY_API_KEY
-    };
-
+  const fetchWeatherData = async (latitude, longitude) => {
     try {
-      const response = await fetch('https://api.windy.com/api/point-forecast/v2', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody)
-      });
-
-      if (!response.ok) {
-        console.error('Failed to fetch weather data', response.statusText);
-        Alert.alert('Error', 'Failed to fetch weather data');
-        return;
-      }
-
-      const data = await response.json();
+      const data = await getWeatherData(latitude, longitude);
       console.log('Weather Data:', data);
       setWeatherData(data);
     } catch (error) {
-      console.error('Error fetching weather data', error);
       Alert.alert('Error', 'Unable to fetch weather data');
     }
   };
