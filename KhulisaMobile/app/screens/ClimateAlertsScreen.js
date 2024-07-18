@@ -12,7 +12,7 @@ const ClimateAlertScreen = () => {
             const apiKey = 'Dv5dNbICLCyGfggSlgUEIjSV3yyPPfXp';
             const response = await fetch(`https://api.windy.com/api/point-forecast/v2?lat=${location.lat}&lon=${location.lon}&key=${apiKey}`);
             const data = await response.json();
-            // Update region based on fetched data (this example assumes the API returns lat and lon in the response)
+            
             setRegion({
                 latitude: location.lat,
                 longitude: location.lon,
