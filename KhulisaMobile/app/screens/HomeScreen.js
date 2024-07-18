@@ -4,6 +4,9 @@ import Card from "./Card";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = ({ navigation }) => {
+    const handleClimateAlerts = () => {
+        navigation.navigate('Climate Alerts');
+    };
 	return (
 		<View style={styles.container}>
 			<View style={styles.head}>
@@ -18,11 +21,11 @@ const HomeScreen = ({ navigation }) => {
 				onPress={() => console.log("Crop Health Insights")}
 			/>
 			<Card
-				title="Climate Insights"
+				title="Climate Alerts"
 				description="Get real-time weather updates and alerts on cyclones, flooding, and droughts. 
                 Protect your crops!"
 				imageSource={require("../../assets/Sunshine-Coast-News-Cyclone-Main.jpg")}
-				onPress={() => console.log("Climate Insights")}
+				onPress={handleClimateAlerts}
 			/>
 			<Card
 				title="Optimal Watering Schedule"

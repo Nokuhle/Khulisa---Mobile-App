@@ -8,6 +8,7 @@ import LoginScreen from './app/screens/LoginScreen';
 import BottomTabNavigator from './app/screens/BottomTabNavigator';
 import HomeScreen from './app/screens/HomeScreen';
 import CreateAccount from './app/screens/CreateAccount';
+import ClimateAlert from './app/screens/ClimateAlertsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +20,7 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Create Account" component={CreateAccount} />
-      
+        <Stack.Screen name="Climate Alerts" component={ClimateAlert} />
         <Stack.Screen name="BottomTabs" component={BottomTabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>

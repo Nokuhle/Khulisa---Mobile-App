@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     width: 350,
     overflow: 'hidden',
+    
   },
   imageBackground: {
     width: '100%',
