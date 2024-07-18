@@ -11,4 +11,4 @@ const MyTipsScreen = () =>{
     );
 };
 
-export default MyTipsScreen();
+export default MyTipsScreen;
