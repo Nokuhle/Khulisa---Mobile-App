@@ -7,9 +7,16 @@ const HomeScreen = ({ navigation }) => {
     const handleClimateAlerts = () => {
         navigation.navigate('Climate Alerts');
     };
+
 	const handleCropHealthInsights = () => {
         navigation.navigate('Crop Health Insights');
     };
+
+	const handleWateringSchedule = () =>{
+		navigation.navigate('Watering Schedule');
+	}
+
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.card_cont}>
@@ -31,7 +38,7 @@ const HomeScreen = ({ navigation }) => {
 				description="Get personalized watering times based on weather forecasts. 
                 Save water and keep plants healthy."
 				imageSource={require("../../assets/How-to-Water-Plants.jpg")}
-				onPress={() => console.log("Climate Insights")}
+				onPress={handleWateringSchedule}
 			/>
 		</View>
 	</View>
