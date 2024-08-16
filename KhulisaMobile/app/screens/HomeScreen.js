@@ -7,18 +7,17 @@ const HomeScreen = ({ navigation }) => {
     const handleClimateAlerts = () => {
         navigation.navigate('Climate Alerts');
     };
+	const handleCropHealthInsights = () => {
+        navigation.navigate('Crop Health Insights');
+    };
 	return (
 		<View style={styles.container}>
-			<View style={styles.head}>
-                <Icon name="bars" size={30} color="#008c27" style={styles.bars}/>
-
-				<Text style={styles.heading}>User</Text>
-			</View>
+			<View style={styles.card_cont}>
 			<Card
 				title="Crop Health Insights"
 				description="Boost crop health and yield with expert advice. Optimize resources for better productivity..."
 				imageSource={require("../../assets/water-plant-growth.jpg")}
-				onPress={() => console.log("Crop Health Insights")}
+				onPress={handleCropHealthInsights}
 			/>
 			<Card
 				title="Climate Alerts"
@@ -35,6 +34,8 @@ const HomeScreen = ({ navigation }) => {
 				onPress={() => console.log("Climate Insights")}
 			/>
 		</View>
+	</View>
+			
 	);
 };
 
@@ -55,20 +56,10 @@ const styles = StyleSheet.create({
         marginLeft: 15,
 
     },
-	head: {
-		paddingBottom: 15,
-		paddingTop: 15,
-		width: "100%",
-		backgroundColor: "white",
-		shadowColor: "#000",
-		shadowOffset: { width: 0, height: 2 },
-		shadowOpacity: 0.25,
-		shadowRadius: 3.84,
-		elevation: 5,
-        display: 'flex',
-        flexDirection: 'row',
-		
+	card_cont:{
+		marginTop:20,
 	},
+	
 });
 
 export default HomeScreen;

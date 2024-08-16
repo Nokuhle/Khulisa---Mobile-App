@@ -23,7 +23,7 @@ const BottomTabNavigator = () => (
       name="My Crops"
       component={MyCropsScreen}
       options={{
-        tabBarIcon: ({ color, size }) => <Icon name="settings" color={color} size={size} />,
+        tabBarIcon: ({ color, size }) => <Icon name="leaf-outline" color={color} size={size} />,
       }}
     />
     <Tab.Screen

@@ -8,6 +8,7 @@ import LoginScreen from './app/screens/LoginScreen';
 import BottomTabNavigator from './app/screens/BottomTabNavigator';
 import CreateAccount from './app/screens/CreateAccount';
 import ClimateAlert from './app/screens/ClimateAlertsScreen';
+import CropHealthInsights from './app/screens/CropHealthInsights';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export default function App() {
         <Stack.Screen name="Create Account" component={CreateAccount} />
 
         <Stack.Screen name="Climate Alerts" component={ClimateAlert} />
+        <Stack.Screen name="Crop Health Insights" component={CropHealthInsights} />
        
 
         <Stack.Screen name="BottomTabs" component={BottomTabNavigator} options={{ headerShown: false }}/>
