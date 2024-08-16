@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ImageBackground, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+
 function MyCrops2() {
     const [formData, setFormData] = useState({
         plantingDate: '',
@@ -121,7 +122,7 @@ function MyCrops2() {
                         
                          </View>
                          <View style={styles.region}>
-                            <Icon name='compass-outline' size={30} color={'#008C27'}/>
+                            <Icon name='compass-outline' size={30} color={'white'}/>
                             <Text style={styles.summaryRegion}>Region: {formData.region}</Text>
                          </View>
                          <View style={styles.items}>
@@ -214,7 +215,7 @@ const styles = StyleSheet.create({
     },
     summaryRegion:{
         fontSize: 18,
-        color: '#008C27',
+        color: 'white',
         fontWeight: 'bold',
         
     },

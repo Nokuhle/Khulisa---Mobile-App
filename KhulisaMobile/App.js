@@ -10,6 +10,8 @@ import CreateAccount from './app/screens/CreateAccount';
 import ClimateAlert from './app/screens/ClimateAlertsScreen';
 import CropHealthInsights from './app/screens/CropHealthInsights';
 import MyCrops2 from './app/screens/MyCrops2';
+import WateringSchedule from './app/screens/OptimalWateringSchedule';
+import RegionDetails from './app/screens/RegionDetails';
 const Stack = createNativeStackNavigator();
 
 export default function App() {

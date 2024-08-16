@@ -1,64 +1,66 @@
 import React from 'react';
-import {View, Text, StyleSheet, ImageBackground, TextInput, ScrollView} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import BottomTabNavigator from './BottomTabNavigator';
-function CropHealthInsights(){
-    return (
-        <>
-        <View style={styles.background}>
-            <View style={styles.container}>
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 
-            <Icon name='happy-outline' size={70} style={styles.icon}/>
-            <Text style={styles.text}>Hmm...this section is empty, enter your crop details in ‘My Crops’.</Text>
-            </View>
-           
-           
+const data = [
+    {
+        id: '1',
+        title: 'Drip Irrigation',
+        content: 'Drip irrigation is efficient. Monitor soil moisture and consider rain forecasts to avoid unnecessary irrigation.',
+    },
+    {
+        id: '2',
+        title: 'Crop Rotation',
+        content: 'Continue with corn-soybean rotation to improve soil health and reduce pest and disease risk.',
+    },
+    {
+        id: '3',
+        title: 'WARNING!!!',
+        content: 'The use of synthetic fertilizers, like nitrogen fertilizers, can harm your crops and contribute to water pollution. See tips for sustainable alternatives.',
+    },
+];
+
+function CropHealthInsights() {
+    const renderItem = ({ item }) => (
+        <View style={styles.card}>
+            <Text style={styles.cardTitle}>{item.title}</Text>
+            <Text style={styles.cardContent}>{item.content}</Text>
         </View>
-        
-        </>
-    )
+    );
+
+    return (
+        <View style={styles.background}>
+            <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id}
+            />
+        </View>
+    );
 }
+
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        width: '100%',
-        height: '100%',
-        alignItems: 'center',
-       backgroundColor:'#CFF0A1',
-       
-
+        padding: 20,
+        backgroundColor: '#CFF0A1',
     },
-    overlay:{
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.2)',
-        width: '100%'
-    },
-    container:{
-        alignItems: 'center',
-        marginTop: 100,
-        padding: 25,
-    },
-    text:{
-        color: '#008C27',
-        fontWeight: 'bold',
-        fontSize: 17,
-        marginTop: 20,
-        marginLeft: 10,
-        textAlign:'center'
-    },
-    input:{
+    card: {
         backgroundColor: 'white',
-        marginTop: 10,
         padding: 15,
-        width: 330,
-        marginLeft: 25,
         borderRadius: 10,
-        borderWidth: 2,
-        borderColor: '#008C27',
-
+        marginBottom: 10,
+        marginTop:10,
     },
-    icon:{
+    cardTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
         color: '#008C27',
-    }
-})
-export default CropHealthInsights
+    },
+    cardContent: {
+        fontSize: 16,
+        color: '#333',
+        marginTop: 5,
+    },
+});
+
+export default CropHealthInsights;
