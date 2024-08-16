@@ -9,7 +9,7 @@ import BottomTabNavigator from './app/screens/BottomTabNavigator';
 import CreateAccount from './app/screens/CreateAccount';
 import ClimateAlert from './app/screens/ClimateAlertsScreen';
 import CropHealthInsights from './app/screens/CropHealthInsights';
-
+import MyCrops2 from './app/screens/MyCrops2';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -22,7 +22,8 @@ export default function App() {
 
         <Stack.Screen name="Climate Alerts" component={ClimateAlert} />
         <Stack.Screen name="Crop Health Insights" component={CropHealthInsights} />
-
+        <Stack.Screen name="Watering Schedule" component={WateringSchedule}/>
+        <Stack.Screen name="RegionDetails" component={RegionDetails} options={{ title: 'Region Details' }} />
        
 
         <Stack.Screen name="BottomTabs" component={BottomTabNavigator} options={{ headerShown: false }}/>
