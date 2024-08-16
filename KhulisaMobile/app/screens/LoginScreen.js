@@ -19,7 +19,7 @@ const LoginScreen = ({navigation}) => {
     };
 
     const dismissKeyboard = () => {
-        Keyboard.dismiss(); // Function to dismiss keyboard when tapping outside TextInput
+        Keyboard.dismiss(); 
       };
 
       const handleSignUp = ()=> {

@@ -16,12 +16,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Create Account" component={CreateAccount} />
 
         <Stack.Screen name="Climate Alerts" component={ClimateAlert} />
         <Stack.Screen name="Crop Health Insights" component={CropHealthInsights} />
+
        
 
         <Stack.Screen name="BottomTabs" component={BottomTabNavigator} options={{ headerShown: false }}/>

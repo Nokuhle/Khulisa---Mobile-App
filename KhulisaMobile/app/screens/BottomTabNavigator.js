@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import MyCropsScreen from '../screens/MyCrops';
 import MyTipsScreen from '../screens/Tips';
 import ProfileScreen from '../screens/Profile';
+import MyCrops2 from '../screens/MyCrops2';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,7 +22,7 @@ const BottomTabNavigator = () => (
     />
     <Tab.Screen
       name="My Crops"
-      component={MyCropsScreen}
+      component={MyCrops2}
       options={{
         tabBarIcon: ({ color, size }) => <Icon name="leaf-outline" color={color} size={size} />,
       }}

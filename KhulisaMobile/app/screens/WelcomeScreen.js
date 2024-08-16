@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         width: 450,
         height: 500, 
         resizeMode: 'contain', 
-        marginTop: 40,
+        marginTop: 60,
       },
       linearGradient: {
         flex: 1,
