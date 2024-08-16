@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 // Import your screens
 import HomeScreen from '../screens/HomeScreen';
-import MyCropsScreen from '../screens/MyCrops';
 import MyTipsScreen from '../screens/Tips';
 import ProfileScreen from '../screens/Profile';
 import MyCrops2 from '../screens/MyCrops2';
